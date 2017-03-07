@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="Home" />
+
+        <item android:title="Shop by Department"></item>
+
+    </group>
+
+
+    <group>
+    <item android:title="Electronics"
+        android:id="@+id/ele_title">
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_mob"
+                android:icon="@drawable/mob"
+                android:title="Mobile" />
+            <item
+                android:id="@+id/nav_lap"
+                android:icon="@drawable/laptop"
+                android:title="Laptop" />
+            <item
+                android:id="@+id/nav_tab"
+                android:icon="@drawable/tablet"
+                android:title="Tablet" />
+        </menu>
+    </item>
+    </group>
+
+
+
+
+
+    <item android:title="LifeStyle">
+        <menu>
+            <item
+                android:id="@+id/nav_men"
+                android:icon="@drawable/men"
+                android:title="Men" />
+            <item
+                android:id="@+id/nav_women"
+                android:icon="@drawable/women"
+                android:title="Women" />
+            <item
+                android:id="@+id/nav_kidss"
+                android:icon="@drawable/kids"
+                android:title="Kids special" />
+        </menu>
+    </item>
+
+
+    <item android:title="Home Decore">
+        <menu>
+            <item
+                android:id="@+id/nav_kitchen"
+                android:icon="@drawable/kitchendianing"
+                android:title="Kitchen dining" />
+
+            <item
+                android:id="@+id/nav_lightinng"
+                android:icon="@drawable/light"
+                android:title="Lighting" />
+        </menu>
+    </item>
+
+
+    <item android:title="Offers">
+        <menu>
+            <item
+                android:id="@+id/nav_offers"
+                android:icon="@drawable/offer"
+                android:title="offer" />
+        </menu>
+            </item>
+
+
+    <item android:title="User Details">
+        <menu>
+            <item
+                android:id="@+id/nav_myorder"
+                android:icon="@drawable/naviorder"
+                android:title="My Order" />
+            <item
+                android:id="@+id/nav_myaccount"
+                android:icon="@drawable/naviuserdetail"
+                android:title="My account" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/logout"
+                android:title="Logout" />
+
+
+        </menu>
+    </item>
+
+
+</menu>

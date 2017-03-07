@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">OnlineShopping</string>
+
+    <string-array name="product">
+        <item>Mobile</item>
+        <item>Laptop</item>
+        <item>Tablet</item>
+        <item>Kitechen</item>
+        <item>Pendrive</item>
+        <item>Gilrsdress</item>
+        <item>Girlsbracelet</item>
+        <item>GirlsWatches</item>
+        <item>Boyspurse</item>
+        <item>Boyswatches</item>
+
+    </string-array>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
+
+
+
+
