@@ -59,7 +59,10 @@
         <activity
             android:name=".Navioffers"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".Mobiledetails"></activity>
+        <activity android:name=".Mobiledetails" />
+        <activity android:name=".Searchcategory"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            ></activity>
     </application>
 
 </manifest>
