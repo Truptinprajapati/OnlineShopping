@@ -13,7 +13,8 @@
 
 
     <group>
-    <item android:title="Electronics"
+    <item
+        android:title="Electronics"
         android:id="@+id/ele_title">
 
         <menu>

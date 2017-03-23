@@ -1,10 +1,13 @@
 package com.example.modern.onlineshopping;
 
-import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,8 +16,10 @@ import android.widget.Toast;
 
 import com.example.modern.onlineshopping.AsyncTasks.AsyncResponse;
 import com.example.modern.onlineshopping.AsyncTasks.WebserviceCall;
+import com.example.modern.onlineshopping.pojo.Pojoforgot;
+import com.example.modern.onlineshopping.pojo.Pojologin;
+import com.google.gson.Gson;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,6 +27,7 @@ import org.json.JSONObject;
  * Created by modern on 1/27/2017.
  */
 public class Login extends AppCompatActivity {
+    String URL ="http://development.ifuturz.com/core/FLAT_TEST/ecart_new/admin/webservice.php";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,14 +38,21 @@ public class Login extends AppCompatActivity {
         TextView lsignup=(TextView)findViewById(R.id.signup);
         TextView lforgotpwd=(TextView)findViewById(R.id.forgotpwd);
         Button login =(Button)findViewById(R.id.login);
-       final View dialogView;
-        final Context c;
+        View dialogView;
+
 
 
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
+
+
+
 
                 String stremail=email.getText().toString();
                 String strpwd=pwd.getText().toString();
@@ -58,32 +71,39 @@ public class Login extends AppCompatActivity {
 
                 {JSONObject object = new JSONObject();
                     try {
-                        object.put("email", stremail);
+                        object.put("mode","loginUser");
+                        object.put("emailId", stremail);
                         object.put("password", strpwd);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                     String jsonRequest = String.valueOf(object);
 
-                    String URL = "http://www.vnurture.in/pro/login.php";
+//                    String URL = "http://www.vnurture.in/pro/login.php";
+                    String URL ="http://development.ifuturz.com/core/FLAT_TEST/ecart_new/admin/webservice.php";
+
+
+
+
                     new WebserviceCall(Login.this, URL, jsonRequest, "Loading...", true, new AsyncResponse() {
                         @Override
-                        public void onSuccess(final String message, JSONArray jsonData) {
-                            Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
-                            try {
-                                getSharedPreferences("testpref",MODE_PRIVATE).edit().putString("id",jsonData.getJSONObject(0).getString("id")).apply();
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                        public void onCallback(String response) {
+                            Log.d("myapp",response);
+                            Pojologin pojologin=new Gson().fromJson(response,Pojologin.class);
+                            if (pojologin.getStatus()==1)
+                            {
+                                Log.d("myapp",pojologin.getMessage());
+                                Intent i = new Intent(Login.this,Navigation.class);
+                                startActivity(i);
                             }
-                            Intent intent = new Intent(Login.this,Navigation.class);
-                            startActivity(intent);
-                        }
 
-                        @Override
-                        public void onFailure(String message) {
-                            Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
+
+
+
                         }
                     }).execute();
+
+
                 }
 
 
@@ -103,87 +123,102 @@ public class Login extends AppCompatActivity {
 
 
 
-        lforgotpwd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(Login.this,Forgotpassword.class);
-                startActivity(i);
-            }
-        });
-
-
-
-
-
-
-
 //        lforgotpwd.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//
-//                showForgotPasswordDialog();
-//
-//            }
-//
-//            private void showForgotPasswordDialog() {
-//
-//
-//                dialogView= LayoutInflater.from(this).inflate(R.layout.dailog_forgot_pwd,null);
-//
-//
-//                AlertDialog alertDialog=new AlertDialog.Builder(this)
-//                        .setTitle("Email")
-//                        .setView(dialogView)
-//                        .setPositiveButton("Verify", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                handleDialog(dialogView);
-//                                dialog.dismiss();
-//                            }
-//                        })
-//                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                dialog.dismiss();
-//                            }
-//                        })
-//                        .create();
-//                alertDialog.show();
-//
-//
-//            }
-//
-//            private void handleDialog(View dialogView) {
-//                EditText verifyEmailET = (EditText) dialogView.findViewById(R.id.forgot_et_email);
-//                String stremail = verifyEmailET.getText().toString();
-//                JSONObject object = new JSONObject();
-//                try {
-//                    object.put("mode","forgotPassword");
-//                    object.put("emailId", stremail);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                String jsonRequest = String.valueOf(object);
-////        String URL = "http://development.ifuturz.com/core/FLAT_TEST/stone_galary/admin/webservice.php";
-//                String URL = "http://www.vnurture.in/pro/mailtest.php";
-//                new WebserviceCall(Login.this, URL, jsonRequest, "Loading...", true, new AsyncResponse() {
-//                    @Override
-//                    public void onSuccess(final String message, JSONArray jsonData) {
-//                        Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(Login.this, Navigation.class);
-//                        startActivity(intent);
-//                    }
-//
-//                    @Override
-//                    public void onFailure(String message) {
-//                        Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
-//                    }
-//                }).execute();
-//
+//                Intent i=new Intent(Login.this,Forgotpassword.class);
+//                startActivity(i);
 //            }
 //        });
-//
+
+
+
+
+
+
+        lforgotpwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showForgotPasswordDialog();
+
+            }
+
+
+
+        });
+
+
+    }
+
+    private void showForgotPasswordDialog() {
+        final View dialogView= LayoutInflater.from(this).inflate(R.layout.dailog_forgot_pwd,null);
+        AlertDialog ad=new AlertDialog.Builder(this)
+                .setTitle("Email")
+                .setView(dialogView)
+                .setPositiveButton("Verify", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        handleDialog(dialogView);
+                        dialog.dismiss();
+
+
+                    }
+
+                    private void handleDialog(View dialogView) {
+                        EditText verifyEmailET = (EditText) dialogView.findViewById(R.id.forgot_et_email);
+                        String stremail = verifyEmailET.getText().toString();
+                        JSONObject object = new JSONObject();
+                        try {
+                            object.put("mode","forgotPassword");
+                            object.put("emailId", stremail);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        String jsonRequest = String.valueOf(object);
+
+                        String URL ="http://development.ifuturz.com/core/FLAT_TEST/ecart_new/admin/webservice.php";
+                       // String URL = "http://www.vnurture.in/pro/mailtest.php";
+
+
+
+                        new WebserviceCall(Login.this, URL, jsonRequest, "Loading...", true, new AsyncResponse() {
+                            @Override
+                            public void onCallback(String response) {
+                                Log.d("myapp",response);
+                                Pojoforgot pf=new Gson().fromJson(response,Pojoforgot.class);
+                                if (pf.getStatus()==1)
+                                {
+                                    Log.d("myapp",pf.getMessage());
+                                    Toast.makeText(getApplicationContext(),"your messges sent Email",Toast.LENGTH_SHORT).show();
+
+                                   Intent i = new Intent(Login.this,Navigation.class);
+                                    startActivity(i);
+                                }
+
+                                else {
+                                    Toast.makeText(getApplicationContext(),"Try agin",Toast.LENGTH_SHORT).show();
+                                }
+
+
+
+                            }
+                        }).execute();
+
+                    }
+
+
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create();
+        ad.show();
+
 
     }
 }

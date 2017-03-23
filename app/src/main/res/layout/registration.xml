@@ -29,11 +29,11 @@
         android:layout_height="410dp">
 
         <EditText
-            android:id="@+id/r_fname"
+            android:id="@+id/r_uname"
             android:textColorHint="#47535b"
             android:drawableLeft="@drawable/uname"
             android:layout_marginTop="30dp"
-            android:hint="enter the first name"
+            android:hint="Username"
             android:textSize="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,24 +41,13 @@
             android:textColor="#47535B"
             />
 
-        <EditText
-            android:id="@+id/r_lname"
-            android:textColorHint="#47535b"
-            android:layout_marginTop="5dp"
-            android:hint="enter the last name"
-            android:textSize="20dp"
-            android:drawableLeft="@drawable/uname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:typeface="serif"
-            android:textColor="#47535B"
-            />
+
 
         <EditText
             android:id="@+id/r_email"
             android:textColorHint="#47535b"
             android:layout_marginTop="5dp"
-            android:hint="enter the email"
+            android:hint="email"
 
             android:textSize="20dp"
             android:drawableLeft="@drawable/remail"
@@ -67,6 +56,19 @@
             android:typeface="serif"
             android:textColor="#47535B"
             />
+        <EditText
+            android:id="@+id/r_address"
+            android:textColorHint="#47535b"
+            android:layout_marginTop="5dp"
+            android:hint="Address"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/uname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:typeface="serif"
+            android:textColor="#47535B"
+            />
+
 
 
         <EditText
@@ -82,61 +84,15 @@
             android:typeface="serif"
             android:textColor="#47535B"
             />
-        <EditText
-            android:id="@+id/r_confirmpwd"
-            android:textColorHint="#47535b"
-            android:inputType="textPassword"
-            android:layout_marginTop="5dp"
-            android:hint=" confirm password"
-            android:textSize="20dp"
-            android:drawableLeft="@drawable/rpwd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:typeface="serif"
-            android:textColor="#47535B"
-            />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gender"
-            android:textSize="20dp"
-            android:typeface="serif"
-            android:textColor="#47535B"
-            android:layout_marginLeft="10dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/gender_textview" />
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp">
-            <RadioButton
-                android:buttonTint="#2D652B"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Male"
-                android:textSize="20dp"
-                android:typeface="serif"
-                android:textColor="#47535B"
-                android:id="@+id/male_radiobutton" />
-            <RadioButton
-                android:buttonTint="#2D652B"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Female"
-                android:textSize="20dp"
-                android:typeface="serif"
-                android:textColor="#47535B"
-                android:id="@+id/female_radiobutton" />
-        </RadioGroup>
+
+
         <EditText
             android:id="@+id/r_mobno"
             android:textColorHint="#47535b"
             android:inputType="phone"
             android:layout_marginTop="5dp"
-            android:hint="enter the mobilenumber"
+            android:hint="mobilenumber"
             android:textSize="20dp"
             android:drawableLeft="@drawable/rmob"
             android:layout_width="match_parent"
@@ -150,7 +106,7 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_marginTop="30dp"
+
         android:layout_gravity="center"
         android:layout_width="300dp"
         android:layout_height="60dp">
