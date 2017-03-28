@@ -1,4 +1,4 @@
-    package com.example.modern.onlineshopping;
+    package com.example.modern.onlineshopping.activity;
 
     import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.modern.onlineshopping.AsyncTasks.AsyncResponse;
 import com.example.modern.onlineshopping.AsyncTasks.WebserviceCall;
+    import com.example.modern.onlineshopping.R;
     import com.example.modern.onlineshopping.pojo.PojoModel;
     import com.google.gson.Gson;
 

@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/productlist"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.modern.onlineshopping.activity.Navigation"
-    tools:showIn="@layout/app_bar_navigation"
-    android:background="#FFFFFF"
-    >
-
+    android:background="#b3c0c8"
+    tools:context="com.example.modern.onlineshopping.activity.Productlist">
     <ListView
-        android:id="@+id/nproductlist"
+        android:id="@+id/pdlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>
-</RelativeLayout>
+
+</LinearLayout>

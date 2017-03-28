@@ -1,4 +1,4 @@
-package com.example.modern.onlineshopping;
+package com.example.modern.onlineshopping.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.modern.onlineshopping.AsyncTasks.AsyncResponse;
 import com.example.modern.onlineshopping.AsyncTasks.WebserviceCall;
+import com.example.modern.onlineshopping.R;
 import com.example.modern.onlineshopping.pojo.Pojoforgot;
 import com.example.modern.onlineshopping.pojo.Pojologin;
 import com.google.gson.Gson;
@@ -46,12 +47,6 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-
-
-
 
 
                 String stremail=email.getText().toString();

@@ -1,4 +1,4 @@
-package com.example.modern.onlineshopping;
+package com.example.modern.onlineshopping.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +17,17 @@ import android.widget.Toast;
 
 import com.example.modern.onlineshopping.AsyncTasks.AsyncResponse;
 import com.example.modern.onlineshopping.AsyncTasks.WebserviceCall;
+import com.example.modern.onlineshopping.Kitchen_dining;
+import com.example.modern.onlineshopping.Navikids;
+import com.example.modern.onlineshopping.Navilaptoplist;
+import com.example.modern.onlineshopping.Navilighting;
+import com.example.modern.onlineshopping.Navimen;
+import com.example.modern.onlineshopping.Navimoblist;
+import com.example.modern.onlineshopping.Navioffers;
+import com.example.modern.onlineshopping.Navitabletlist;
+import com.example.modern.onlineshopping.Naviwomen;
+import com.example.modern.onlineshopping.R;
+import com.example.modern.onlineshopping.customclass.CustomAdapter;
 import com.example.modern.onlineshopping.pojo.Pojonavigetcategorylist;
 import com.google.gson.Gson;
 
@@ -68,9 +79,7 @@ public class Navigation extends AppCompatActivity
         {JSONObject object = new JSONObject();
             try {
 
-//                for (int i = 0; i < object.length(); i++)
 
-//categoryName
                 object.put("mode","getCategoryList");
 
 
@@ -80,7 +89,6 @@ public class Navigation extends AppCompatActivity
             String jsonRequest = String.valueOf(object);
 
 
-//          final List<Pojonavigetcategorylist.CategoryListBean> categoryList;
 
             new WebserviceCall(Navigation.this, URL, jsonRequest, "LOadding...", true, new AsyncResponse() {
 
@@ -98,13 +106,26 @@ public class Navigation extends AppCompatActivity
 
                         categoryList=list.getCategoryList();
 
-                        ListView productlist=(ListView)findViewById(R.id.productlist);
+
+                        final ListView nproductlist=(ListView)findViewById(R.id.nproductlist);
                         CustomAdapter adapter=new CustomAdapter(Navigation.this,categoryList);
-                        productlist.setAdapter(adapter);
+                       nproductlist.setAdapter(adapter);
 
 
-//                        Intent i = new Intent(Navigation.this,Login.class);
-//                        startActivity(i);
+
+//
+//                        productlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                            @Override
+//                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                                Intent intent = new Intent(Navigation.this,
+//                                        Productlist.class);
+//
+//                                intent.putExtra("product", productlist.getAdapter().getItem(position).toString());
+//
+//                                startActivityForResult(intent,   0);
+//                            }
+//                        });
+
 
 
                     }
@@ -119,6 +140,7 @@ public class Navigation extends AppCompatActivity
 
 
         }
+
 
 
 
@@ -341,6 +363,7 @@ public class Navigation extends AppCompatActivity
             Toast.makeText(getApplicationContext(),"Myaccount",Toast.LENGTH_SHORT).show();
         }
         else if (id == R.id.nav_logout) {
+
 
             getSharedPreferences("testpref",MODE_PRIVATE).edit().clear().apply();
             Intent intent = new Intent(Navigation.this,Login.class);

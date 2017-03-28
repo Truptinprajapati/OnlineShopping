@@ -11,7 +11,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#FFFFFF"
-    tools:context="com.example.modern.onlineshopping.Searchcategory">
+    tools:context="com.example.modern.onlineshopping.activity.Searchcategory">
 
     <AutoCompleteTextView
         android:id="@+id/searchcategory"

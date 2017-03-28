@@ -1,6 +1,7 @@
-package com.example.modern.onlineshopping;
+package com.example.modern.onlineshopping.customclass;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.modern.onlineshopping.R;
+import com.example.modern.onlineshopping.activity.Productlist;
 import com.example.modern.onlineshopping.pojo.Pojonavigetcategorylist;
 
 import java.util.List;
@@ -54,34 +57,17 @@ public class CustomAdapter extends BaseAdapter {
     }
 
 
-//    public class Holder
-//    {
-//        TextView plist;
-//    }
+    public class Holder
+    {
+        TextView plist;
+    }
 
 
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
-        //Holder holder=new Holder();
-
-
-
-//        convertView=LayoutInflater.from(context).inflate(R.layout.productcustom,parent,false);
-//
-//        TextView plist=(TextView)convertView.findViewById(R.id.text);
-//
-////        Pojonavigetcategorylist.CategoryListBean pojolist=p.get(position);
-//        plist.setText("categoryName:"+String.valueOf(p.get(position).getCategoryName()));
-
-
-
-
-
-
-
-
+        Holder holder=new Holder();
 
 
         if(inflater == null)
@@ -89,18 +75,50 @@ public class CustomAdapter extends BaseAdapter {
 
         if(convertView == null)
             convertView =inflater.inflate(R.layout.productcustom,null);
-        TextView t1 = (TextView) convertView.findViewById(R.id.prodli);
-        t1.setText(pjfile.get(position).getCategoryName().toString());
+        holder.plist = (TextView) convertView.findViewById(R.id.prodli);
+
         Log.d("myapp",pjfile.get(position).getCategoryName());
 
+String data=pjfile.get(position).getCategoryName().toString();
 
-
-
+       // v.getContext().startActivity(new Intent(context, Productlist.class));
+Log.d("myapp","data"+data);
+holder.plist.setText(data);
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(context,Productlist.class);
+                i.putExtra("cat_id",position);
+                context.startActivity(i);            }
+        });
+        return convertView;
+    }
 //        p.get(1).getCategoryName();
 //        Pojonavigetcategorylist m = p.get(position);
 //        t1.setText("UserId: "+String.valueOf(m.()));
+//
+//
+//
+//
+//
+//        holder.plist.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent i;
+//                v.getContext().startActivity(new Intent(context, Productlist.class));
+//                i.putExtra(pjfile.get(position).getCategoryName().toString());
+//
+//            }
+//        });
+//
+//
+//    public void onItemClick(AdapterView<?> parent, View view, int position,
+//                            long id) {
+//
+//
+//            }
 
 
-        return convertView;
-    }
+
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="2">
+    <ImageView
+        android:id="@+id/productimg"
+        android:layout_weight="1"
+        android:src="@drawable/androidtv"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
+    <TextView
+        android:id="@+id/productname"
+        android:layout_weight="1"
+        android:text="productname"
+        android:textSize="18dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="#1d1b1b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

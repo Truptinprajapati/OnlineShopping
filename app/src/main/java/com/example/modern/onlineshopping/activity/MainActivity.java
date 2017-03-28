@@ -1,8 +1,10 @@
-package com.example.modern.onlineshopping;
+package com.example.modern.onlineshopping.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.example.modern.onlineshopping.R;
 
 public class MainActivity extends AppCompatActivity {
     private final int time=2500;
@@ -11,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
         Thread timerThread =new Thread()
